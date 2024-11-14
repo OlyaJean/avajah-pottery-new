@@ -15,12 +15,12 @@ const Header = () => {
       <ul  className='flex gap-3 sm:gap-5 my-5 md:gap-20 text-neutral-500 navbar md:text-[1.1rem]'>
           <Link href={'/'}>Home</Link>
           <Link  href={'/shop'}>Shop</Link>
-          <Link  href={'/journal'}>Journal</Link>
-          <Link  href={'/about'}>About </Link>
+          <Link  href={'/about'}>About</Link>
+          <Link  href={'/contact'}>Contact </Link>
       </ul>
    
     </nav>
-    <Image alt='' src={cart} width={20} className='cursor-pointer text-neutral-500'/>
+    <Link href={'/cart'}><Image alt='' src={cart} width={20} className='cursor-pointer text-neutral-500'/></Link>
   </div>
   )
 }
