@@ -24,4 +24,8 @@ const Schema = new mongoose.Schema({
     },
 })
 
-const 
+const ShopModel = mongoose.models.shop || mongoose.model('shop',Schema)
+
+//Using || operator so if shop database is available , it will use it first, otherwise it will create a new db every time
+
+export default ShopModel
