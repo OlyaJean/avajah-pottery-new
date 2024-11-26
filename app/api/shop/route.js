@@ -10,10 +10,19 @@ const loadDB = async() =>{
 loadDB();
 //we pass request as an argument inside our hhtp request function, which makes this request dynamic. Great for e-commerce where cart changes frequently. Without an argument, the request will be static, which means the request will be cached and re-used. Good for blogs. By default Next js is using static requests
 export async function GET(request){
-   
+   const itemID = request.nextUrl.searchParams.get('id')
+   if(itemID){
+    const item = await ShopModel.findById(itemID)  
+    return NextResponse.json(item)
+   }else{
     const items = await ShopModel.find({})
-  
     return NextResponse.json({items})
+   }
+ 
+
+
+  
+   
 }
 
 export async function POST(request){

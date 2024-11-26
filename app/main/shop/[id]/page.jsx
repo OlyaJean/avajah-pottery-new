@@ -1,5 +1,6 @@
 'use client'
 import { assets, items } from '@/assets/assets';
+import axios from 'axios';
 import Image from 'next/image';
 
 import React, { useEffect, useState } from 'react'
@@ -9,17 +10,14 @@ import React, { useEffect, useState } from 'react'
     const param = React.use(params)
     const [data,setData] = useState(null);
 
-    const fetchData = () => {
-       for(let i = 0; i < items.length; i++){
-        if(Number(param.id) === items[i].id){
-            setData(items[i]);
-           
-            break;
-        }
-       } 
-       
+    const fetchData = async() => {
+      const response = await axios.get('/api/shop', {params:{
+        id:param.id
+      }})
+       setData(response.data)
+       console.log(response.data)
        }
-      console.log(data)
+     
    
     useEffect(()=>{
         fetchData()
@@ -30,7 +28,7 @@ import React, { useEffect, useState } from 'react'
     <div className='min-h-[93vh] flex flex-col items-center justify-center gap-5 p-10'>
 {data? <>
     <p className='text-lg'>{data.description}</p>
-<Image src={data.img} alt='' width={270} className='border-8 border-solid rounded-md border-neutral-400'/>
+<Image src={data.img} alt='null' width={270} height={350} className='border-8 border-solid rounded-md border-neutral-400'/>
  
   <p>${data.price}</p>
   <p className='text-center'>{data.story}</p>
