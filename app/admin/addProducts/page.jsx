@@ -1,17 +1,20 @@
 'use client'
 
 import axios from 'axios'
+import Image from 'next/image'
 import React, { useState } from 'react'
 
 
 const page = () => {
-
+ 
+  const [img,setImg] = useState(false)
     const [data,setData] = useState({
         description: '',
         price: '',
         story: '',
-        img:'',
-        category: "Decor"
+        category: "Decor",
+        
+      
     })
 
     const onChangeHandler = (event) => {
@@ -20,22 +23,22 @@ const page = () => {
         setData((data)=> ({...data, [name]: value}))
     }// [name] dynamicly changes from one input to another with its value
 
-    console.log(data)
+   
 
-    const submitHandler = async(e) =>{
+    async function submitHandler(e){
        e.preventDefault()
        const formData = new FormData();
        formData.append('description', data.description);
        formData.append('story', data.story);
-       formData.append('img', data.img);
+       formData.append('img', img);
        formData.append('price', data.price);
        formData.append('category', data.category);
-       const response = await axios.post('/api/products',formData) // we created api on post method
-       if(response.data.success){
-        toast.success(response.data.message)  
-       }else{
-        toast.error('error');
-       }
+      
+       
+      
+     await axios.post('/api/shop',formData) // we created api on post method
+    
+    
     }
   return (
     <div className='flex flex-col p-5 gap-5'>
@@ -47,12 +50,17 @@ const page = () => {
         <p >Price: </p>
         <input type="text" name='price' value={data.price} className='w-60 border-2' required onChange={onChangeHandler}/>
 
+        <p >Image: </p>
+      
+        <input type="file" name='img'  className='w-60 border-2' required onChange={(e)=>setImg(e.target.files[0])}/>
+
+      
+
         <p >Product description:  </p>
         <textarea type="text" name='story'className='w-60 border-2' value={data.story} required onChange={onChangeHandler}/>
 
 
-        <p>Image: </p>
-        <input type="file" name="img" value={data.img} className='w-60 border-2' required onChange={onChangeHandler}/>
+       
        <p>Category:
        </p>
        <select name="category" value={data.category} onChange={onChangeHandler}>

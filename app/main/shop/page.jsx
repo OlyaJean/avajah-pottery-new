@@ -1,16 +1,27 @@
 'use client'
-import React, {  useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import { items } from '@/assets/assets'
 
 
 import ShopList from '@/components/ShopList'
+import axios from 'axios'
 
 
 
 const page = () => {
   const [menu,setMenu] = useState("All");
  
+  const [adminItems, setAdminItems] = useState([])
 
+ const fetchItems = async() => {
+      const response = await axios.get('/api/shop') // our api endpoint
+      setAdminItems(response.data.items);
+      console.log(response.data.items)
+ }
+
+ useEffect(()=>{
+    fetchItems()
+ },[])
   
   return (
     <>
@@ -24,7 +35,7 @@ const page = () => {
      
        <div className='flex flex-wrap px-10 py-10 gap-5 md:gap-10 justify-center'>
 
-    {items.filter((item)=>  menu==="All"? true : item.category === menu).map((item,index)=>{ return <ShopList key={index} id={item.id} img={item.img} description={item.description} price={item.price}/> })  }
+    {adminItems.filter((item)=>  menu==="All"? true : item.category === menu).map((item,index)=>{ return <ShopList key={index} id={item._id} img={item.img} description={item.description} price={item.price}/> })  }
   </div>
 
   </>

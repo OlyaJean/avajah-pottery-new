@@ -10,10 +10,7 @@ const Schema = new mongoose.Schema({
         type:String,
         required:true
     },
-    img:{
-        type:String,
-        required:true
-    },
+ 
     story:{
         type:String,
         required:true
@@ -22,6 +19,11 @@ const Schema = new mongoose.Schema({
         type:Number,
         required:true
     },
+    img:{
+        type:String,
+        required:true
+    },
+   
 })
 
 const ShopModel = mongoose.models.shop || mongoose.model('shop',Schema)

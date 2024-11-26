@@ -1,6 +1,12 @@
 import mongoose from "mongoose";
-const password = process.env.MANGO_URI;
+const MONGO_URI = process.env.MONGO_URI;
+
 export const connectDB = async () => {
-    await mongoose.connect(`mongodb+srv://olgalavida:${password}.3gioy.mongodb.net/pottery`);
-    console.log("DB connected")
+
+
+        await mongoose.connect(MONGO_URI);
+        console.log("DB connected")
+    
+ 
+
 }

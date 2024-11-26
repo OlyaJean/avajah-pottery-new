@@ -5,7 +5,6 @@ import "./globals.css";
 
 
 
-
 const raleway = Raleway({
   subsets: ['latin'],
     weight: ["300","400","500","600"]
