@@ -1,13 +1,13 @@
 import React from 'react'
 
-const AdminList = ({description,category, price, date }) => {
+const AdminList = ({description,category, price, deleteItem,itemId }) => {
   return (
     <tr  className='flex justify-between'>
       <td>{description? description : "no name"}</td>
       <td>{category? category : 'no category'}</td>
       <td>{price? price : 'no price'}</td>
   
-      <td className='cursor-pointer'>x</td>
+      <td onClick={()=>deleteItem(itemId)} className='cursor-pointer'>x</td>
     </tr>
   )
 }

@@ -1,14 +1,19 @@
+'use client'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
+import { CartProvider } from '@/context/CartContext'
 import React from 'react'
 
-const layout = ({children}) => {
+const layout = ({children,pageProps}) => {
   return (
-    <div>
+    <CartProvider>
+       <div {...pageProps}>
       <Header/>
       {children}
       <Footer/>
     </div>
+    </CartProvider>
+   
   )
 }
 

@@ -10,6 +10,12 @@ const page = () => {
     const response = await axios.get('/api/shop')
     setItems(response.data.items)
   }
+  const deleteItem = async(itemId) =>{
+    const response = await axios.delete('/api/shop', {params:{
+      id:itemId
+    }})
+    fetchItems();
+  }
   useEffect(()=>{
     fetchItems()
   },[])
@@ -26,7 +32,7 @@ const page = () => {
       </thead>
       <tbody>
 
-    {!items? "" : items.map((item,index)=>{ return <AdminList key={index} description={item.description}  category={item.category} price={item.price}/> }) }
+    {!items? "" : items.map((item,index)=>{ return <AdminList key={index} description={item.description} itemId={item._id}  category={item.category} price={item.price} deleteItem={deleteItem}/> }) }
       
       </tbody>
     </table>

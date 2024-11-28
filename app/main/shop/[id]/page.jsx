@@ -2,6 +2,7 @@
 import { assets, items } from '@/assets/assets';
 import axios from 'axios';
 import Image from 'next/image';
+import { useCart } from '@/context/CartContext';
 
 import React, { useEffect, useState } from 'react'
 
@@ -9,6 +10,7 @@ import React, { useEffect, useState } from 'react'
   
     const param = React.use(params)
     const [data,setData] = useState(null);
+    const {cart, addToCart} = useCart()
 
     const fetchData = async() => {
       const response = await axios.get('/api/shop', {params:{
@@ -32,7 +34,7 @@ import React, { useEffect, useState } from 'react'
  
   <p>${data.price}</p>
   <p className='text-center'>{data.story}</p>
-  <button className='bg-neutral-400 rounded-md text-neutral-100 py-2 px-6 shadow-md active:shadow-none'>add</button>
+  <button className='bg-neutral-400 rounded-md text-neutral-100 py-2 px-6 shadow-md active:shadow-none' onClick={()=> addToCart(data)}>add</button>
 </>:<></>}
  
     </div>

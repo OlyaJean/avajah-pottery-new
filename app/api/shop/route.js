@@ -3,6 +3,8 @@ import {writeFile} from 'fs/promises'
 const { NextResponse } = require("next/server")
 import { items } from "@/assets/assets.js";
 import ShopModel from "../../library/models/ShopModel.js";
+const fs = require('fs')
+
 const loadDB = async() =>{
     await connectDB();
 
@@ -51,4 +53,14 @@ const productData = {
 await ShopModel.create(productData);
 console.log('Product saved')
 return NextResponse.json({success:true, msg:'Product added'})
+}
+
+export async function DELETE(request){
+    const idOfItem = await request.nextUrl.searchParams.get('id')
+    const theItem = await ShopModel.findById(idOfItem);
+    //to delete an image from pubclic folder
+    fs.unlink(`./public${theItem.img}`,()=>{}
+    );
+    await ShopModel.findByIdAndDelete(idOfItem);
+    return NextResponse.json({msg:'Deleted'})
 }

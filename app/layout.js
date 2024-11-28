@@ -5,6 +5,9 @@ import "./globals.css";
 
 
 
+
+
+
 const raleway = Raleway({
   subsets: ['latin'],
     weight: ["300","400","500","600"]
@@ -22,11 +25,14 @@ export default function RootLayout({ children }) {
       <body
        className={raleway.className}
       > 
-      
-        {children}
+     
+      {children}
+   
+       
       
       </body>
     </html>
     </>
   );
 }
+
