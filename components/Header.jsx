@@ -9,8 +9,8 @@ const Header = () => {
  
 
   return (
-    <div className='navShadow flex justify-evenly items-center  bg-neutral-100 sticky top-0 z-40'>
-    <span className='tracking-widest text-center font-extralight text-sm'>Avajah <hr />pottery</span>
+    <div className='navShadow flex justify-between px-10 sm:justify-evenly items-center  bg-neutral-100 sticky top-0 z-40'>
+    <span className='tracking-widest hidden sm:block text-center font-extralight text-sm'>Avajah <hr />pottery</span>
     <nav>
       <ul  className='flex gap-3 sm:gap-5 my-5 md:gap-20 text-neutral-500 navbar md:text-[1.1rem]'>
           <Link href={'/main'}>Home</Link>
