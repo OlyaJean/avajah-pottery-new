@@ -12,7 +12,7 @@ const page = () => {
       
       <hr />
       <Image alt='' src={profile} height={400}  className='m-auto border-8 border-slate-300 rounded-lg'/>
-      <p className='indent-5 '>Hello and welcome to the first entry in my journal! My name is Evelyn, and I’m a mother of two, living right here in Charlotte, NC. This journal is where I’ll be sharing my journey, both as a mom and as a creator, as I dive into a new adventure: ceramics.
+      <p className='indent-5 '>Hello and welcome to the first entry in my journal! My name is Evelyn, and I’m a mother of two, living right here in Charlotte, NC. Here, I want to share my journey, both as a mom and as a creator, as I dive into a new adventure: ceramics.
 <br />
 How It All Began.
 <br />
@@ -26,13 +26,10 @@ As time went on, I realized how much joy this new hobby brought me. It was more 
 <br />
 Now, every piece I make is created with love and a sense of purpose. Each mug, bowl, and vase holds a story—of late-night inspiration, the occasional “help” from my kids, and the dream of sharing my craft with the world.
 <br />
-What’s to Come
+
 <br />
-This journal will be my place to document this journey: the highs, the lows, and all the messy in-betweens. I’ll share stories from the studio, lessons learned, behind-the-scenes photos, and maybe even a few tutorials for anyone who wants to try their hand at ceramics.
-<br />
-Thank you for being here. I can’t wait to share more stories and hope you’ll enjoy following along as my passion for ceramics continues to grow.
-<br />
-Stay tuned for more entries soon!
+Thank you for being here.  And hope you’ll enjoy following along as my passion for ceramics continues to grow.
+
 </p>
 <hr />
     </div>

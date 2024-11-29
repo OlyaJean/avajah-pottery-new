@@ -42,8 +42,31 @@ export const CartProvider = ({ children }) => {
     setCart([]);
   };
 
+  const incrementQuantity = (id) => {
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item._id === id ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  };
+  const decrementQuantity = (id) => {
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item._id === id && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+    );
+  };
+  const getTotal = () => {
+    return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  };
+  const getTotalItems = () => {
+    return cart.reduce((acc, item) => acc +  item.quantity, 0);
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, incrementQuantity, decrementQuantity, getTotal, getTotalItems }}>
       {children}
     </CartContext.Provider>
   );

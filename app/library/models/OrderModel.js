@@ -2,24 +2,27 @@ import mongoose from "mongoose";
 
 const Schema = new mongoose.Schema({
    
-    description:{
-        type:String,
-        required:true
-    },
-
-    price:{
-        type:Number,
-        required:true
-    },
-    img:{
-        type:String,
-        required:true
-    }
-   
+    customer: {
+        name: String,
+        address: String,
+        email: String,
+      },
+      items: [
+        {
+          _id: String,
+          name: String,
+          price: Number,
+          quantity: Number,
+        },
+      ],
+      createdAt: {
+        type: Date,
+        default: Date.now,
+      },
 })
 
-const CartModel = mongoose.models.cart || mongoose.model('cart',Schema)
+const OrderModel = mongoose.models.order || mongoose.model('order',Schema)
 
 //Using || operator so if cart database is available , it will use it first, otherwise it will create a new db every time
 
-export default CartModel
+export default OrderModel
