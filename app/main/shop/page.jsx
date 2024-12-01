@@ -25,7 +25,7 @@ const page = () => {
   
   return (
     <>
-       <h1 className='text-center pt-10 md:text-2xl' id="shopTitle">Our Products</h1>
+       <h1 className='text-center mt-10 mb-5 mx-10 md:text-2xl py-5  rounded-md  bg-slate-300' id="shopTitle">Our Products</h1>
        <ul className='flex flex-wrap justify-center gap-3 md:gap-5 px-16 items-center mt-5 text-sm md:text-[1rem]'>
        <li onClick={()=>{setMenu("All")}} className={menu==="All" ?'underline cursor-pointer': 'cursor-pointer'}>All products</li>
               <li onClick={()=>{setMenu("Decor")}} className={menu==="Decor"? 'underline cursor-pointer': 'cursor-pointer'}>Decor & Objects</li>

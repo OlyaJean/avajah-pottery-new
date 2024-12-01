@@ -3,16 +3,16 @@ import profile from '/assets/profile.jpg'
 import Image from 'next/image'
 const page = () => {
   return (
-    <div className='flex flex-col gap-5 px-20 py-10 tracking-widest'>
-<div className='bg-slate-300 p-10'>
-<h1 className='font-extrabold'>Stories from the Studio: My Journey with Clay and Creativity</h1>
+    <div className='flex flex-col gap-5 px-10 tracking-widest'>
+
+<h3 className='text-center mt-10 mb-5  md:text-2xl py-5  rounded-md  bg-slate-300'>Stories from the Studio: My Journey with Clay and Creativity</h3>
 <br />
-<h3 className='font-medium'>A New Chapter Begins</h3>
-</div>
+<h3 className=''>A New Chapter Begins</h3>
+
       
       <hr />
-      <Image alt='' src={profile} height={400}  className='m-auto border-8 border-slate-300 rounded-lg'/>
-      <p className='indent-5 '>Hello and welcome to the first entry in my journal! My name is Evelyn, and I’m a mother of two, living right here in Charlotte, NC. Here, I want to share my journey, both as a mom and as a creator, as I dive into a new adventure: ceramics.
+      <Image alt='' src={profile} height={400}  className='m-auto border-8  rounded-lg'/>
+      <p className='indent-5'>Hello and welcome to the first entry in my journal! My name is Evelyn, and I’m a mother of two, living right here in Charlotte, NC. Here, I want to share my journey, both as a mom and as a creator, as I dive into a new adventure: ceramics.
 <br />
 How It All Began.
 <br />

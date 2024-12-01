@@ -28,10 +28,10 @@ const page = () => {
       }
     }
   return (
-    <div className='flex flex-col justify-center m-10 '>
+    <div className='flex flex-col min-h-[93vh]'>
     <div>
-        <h3 className='text-center pt-10 md:text-2xl'>Contact</h3>
-        <p className='text-center'>To contact us for all other matters, please send an email to avajahceramics@gmail.com or fill out the form below.</p>
+        <h3 className='text-center mt-10 mb-5 mx-10 md:text-2xl py-5  rounded-md  bg-slate-300'>Contact</h3>
+        <p className='text-center text-sm md:text-lg mx-5'>To contact us for all other matters, please send an email to avajahceramics@gmail.com or fill out the form below.</p>
        
     </div>
   <div >

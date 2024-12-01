@@ -15,9 +15,9 @@ const page = () => {
  
 
   return (
-    <div className='min-h-[93vh] p-5 '>
+    <div className='min-h-[93vh] px-10'>
      
-       <h2 className='font-extrabold text-2xl text-center my-5'>Your Cart</h2>
+       <h2 className='text-center mt-10 mb-5  md:text-2xl py-5  rounded-md  bg-slate-300'>Your Cart</h2>
       {cart.length === 0 ? (
         <p className='text-3xl text-center'>Your cart is empty.</p>
       ) : (
@@ -45,7 +45,7 @@ const page = () => {
           </div>
         ))
       )}
-      {cart.length > 0 && <section className='md:fixed md:top-40 md:right-5 md:w-[45vw]  text-center bg-neutral-200 p-20 rounded-lg'>
+      {cart.length > 0 && <section className='md:fixed md:top-[200px] md:right-10  md:max-w-[40vw] text-center bg-neutral-200 p-10 rounded-lg'>
         <p className='text-xl lg:text-3xl'>Total items: {getTotalItems()}</p>
       <p className='text-xl  lg:text-3xl my-5'>Total amount: ${getTotal()} </p>
        <button onClick={handleCheckout} className='bg-neutral-400 rounded-md text-neutral-100 p-2 m-2   shadow-md active:shadow-none  '>Proceed to Checkout</button>
