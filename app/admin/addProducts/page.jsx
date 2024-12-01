@@ -41,35 +41,35 @@ const page = () => {
     
     }
   return (
-    <div className='flex flex-col p-5 gap-5'>
+    <div className='flex flex-col items-center pt-10 gap-5 mx-auto'>
         <h1 className='text-2xl px-10'>Add new product</h1>
-      <form action="" onSubmit={submitHandler} className='flex flex-col gap-2 px-10'>
+      <form action="" onSubmit={submitHandler} className='flex flex-col gap-2 px-10 '>
         <p >Product: </p>
-        <input type="text" name="description" value={data.description} className='w-60 border-2' required onChange={onChangeHandler}/>
+        <input type="text" name="description" value={data.description} className='w-80 border-2' required onChange={onChangeHandler}/>
 
         <p >Price: </p>
-        <input type="text" name='price' value={data.price} className='w-60 border-2' required onChange={onChangeHandler}/>
+        <input type="text" name='price' value={data.price} className='w-80 border-2' required onChange={onChangeHandler}/>
 
         <p >Image: </p>
       
-        <input type="file" name='img'  className='w-60 border-2' required onChange={(e)=>setImg(e.target.files[0])}/>
+        <input type="file" name='img'  className='w-80 border-2' required onChange={(e)=>setImg(e.target.files[0])}/>
 
       
 
         <p >Product description:  </p>
-        <textarea type="text" name='story'className='w-60 border-2' value={data.story} required onChange={onChangeHandler}/>
+        <textarea type="text" name='story'className='w-80 border-2' value={data.story} required onChange={onChangeHandler}/>
 
 
        
        <p>Category:
        </p>
-       <select name="category" value={data.category} onChange={onChangeHandler}>
+       <select name="category" value={data.category} className='w-80' onChange={onChangeHandler}>
         <option required>choose one</option>
         <option value={'Jewelry'}>Jewelry</option>
         <option value={'Decor'}>Decor</option>
         <option value={'Kitchen'}>Kitchen</option>
        </select>
-       <button className='border-2'>add</button>
+       <button className=' w-60 bg-neutral-400 rounded-md text-neutral-100 p-2 mt-5 mx-auto shadow-md active:shadow-none '>add</button>
       </form>
     </div>
   )

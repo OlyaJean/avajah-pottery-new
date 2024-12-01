@@ -38,10 +38,10 @@ import React, { useEffect, useState } from 'react'
   
 {data? 
 <>
-    <div className='flex flex-col sm:flex-row gap-10 items-center'>
+    <div className='flex flex-col sm:flex-row gap-10 items-center justify-center mb-10 border-2 p-10'>
       <Image src={data.img} alt='null' width={270} height={350} className='border-2 border-solid rounded-md border-neutral-400'/>
 
-     <section className='text-center flex flex-col gap-5'>
+     <section className='text-center flex flex-col gap-5 sm:w-1/3'>
       <p className='text-lg font-extrabold'>{data.description}</p>
       <hr />
       <p>${data.price}</p>

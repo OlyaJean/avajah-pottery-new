@@ -20,14 +20,16 @@ const page = () => {
     fetchItems()
   },[])
   return (
-    <table className='border-2 w-[50vw] mx-auto flex flex-col p-5 '>
+    <div className='mx-auto my-5'>
+    <h1 className='text-2xl text-center m-10'>All products</h1>
+    <table className='border-2  mx-auto flex flex-col p-5 '>
       <thead>
-        <tr className='flex justify-between'>
-          <th>Product</th>
-          <th>Category</th>
-          <th>Price</th>
+        <tr className='flex justify-between text-orange-300'>
+          <th className='w-48'>Product</th>
+          <th className='w-48'>Category</th>
+          <th className='w-48'>Price</th>
          
-          <th>Action</th>
+          <th className='w-48'>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -36,6 +38,7 @@ const page = () => {
       
       </tbody>
     </table>
+    </div>
   )
 }
 
