@@ -9,6 +9,7 @@ const page = () => {
   const fetchItems = async() => {
     const response = await axios.get('/api/shop')
     setItems(response.data.items)
+    console.log(response.data.items)
   }
   const deleteItem = async(itemId) =>{
     const response = await axios.delete('/api/shop', {params:{

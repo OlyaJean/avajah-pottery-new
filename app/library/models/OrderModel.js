@@ -9,7 +9,8 @@ const Schema = new mongoose.Schema({
   items: [
     {
       _id: String,
-      name: String,
+      description: String,
+      category: String,
       price: Number,
       quantity: Number,
     },

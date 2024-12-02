@@ -8,16 +8,19 @@ const loadDB = async() =>{
 }
 loadDB();
 
-
+export async function GET(request){
+  const items = await OrderModel.find({})
+  return NextResponse.json({items})
+}
 
 export async function POST(request){
     try {
    
     
-        const body = await request.json(); // Parse the JSON body
-        const newOrder = new OrderModel(body); // Create a new Order document
+        const body = await request.json(); 
+        const newOrder = new OrderModel(body); 
     
-        await newOrder.save(); // Save the order to the database
+        await newOrder.save(); 
     
         return new Response(JSON.stringify({ success: true, order: newOrder }));
       } catch (error) {
