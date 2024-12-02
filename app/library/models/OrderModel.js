@@ -1,24 +1,23 @@
 import mongoose from "mongoose";
 
 const Schema = new mongoose.Schema({
-   
-    customer: {
-        name: String,
-        address: String,
-        email: String,
-      },
-      items: [
-        {
-          _id: String,
-          name: String,
-          price: Number,
-          quantity: Number,
-        },
-      ],
-      createdAt: {
-        type: Date,
-        default: Date.now,
-      },
+  customer: {
+    name: String,
+    address: String,
+    email: String,
+  },
+  items: [
+    {
+      _id: String,
+      name: String,
+      price: Number,
+      quantity: Number,
+    },
+  ],
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 })
 
 const OrderModel = mongoose.models.order || mongoose.model('order',Schema)

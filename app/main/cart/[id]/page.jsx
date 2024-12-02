@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import { useCart } from '/context/CartContext';
+import { useCart } from './../../../../context/CartContext';
 import axios from 'axios';
 
 const page = () => {
@@ -13,10 +13,13 @@ const page = () => {
 
   const handleChange = (e) => {
     setCustomerInfo({ ...customerInfo, [e.target.name]: e.target.value });
+    console.log(cart)
+    console.log(customerInfo)
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       // Save order to MongoDB
       const order = {
@@ -32,12 +35,16 @@ const page = () => {
     } catch (error) {
       console.error('Error placing order:', error);
     }
+
+   
   };
 
   return (
-    <div>
-      <h2>Checkout</h2>
-      <form onSubmit={handleSubmit}>
+    <div className='min-h-[93vh] px-10'>
+      <h2 className='text-center mt-10 mb-5  md:text-2xl py-5  rounded-md  bg-slate-300'>Checkout</h2>
+      <p>hello</p>
+     
+      <form onSubmit={handleSubmit} className='flex flex-col gap-5  sm:w-3/4'>
         <input
           type="text"
           name="name"
@@ -62,7 +69,7 @@ const page = () => {
           onChange={handleChange}
           required
         />
-        <button type="submit">Place Order</button>
+        <button type="submit" className='bg-neutral-400 rounded-md text-neutral-100 p-2  m-2 shadow-md active:shadow-none  '>Place Order</button>
       </form>
     </div>
   );

@@ -10,8 +10,18 @@ loadDB();
 
 
 
-export async function POST(){
-    const newOrder = new OrderModel();
-    await newOrder.save();
-    return NextResponse.json(newOrder)
+export async function POST(request){
+    try {
+   
+    
+        const body = await request.json(); // Parse the JSON body
+        const newOrder = new OrderModel(body); // Create a new Order document
+    
+        await newOrder.save(); // Save the order to the database
+    
+        return new Response(JSON.stringify({ success: true, order: newOrder }));
+      } catch (error) {
+        return new Response(
+          JSON.stringify({ success: false, error: error.message })
+        )}
 }

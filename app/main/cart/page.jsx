@@ -45,7 +45,7 @@ const page = () => {
           </div>
         ))
       )}
-      {cart.length > 0 && <section className='md:fixed md:top-[200px] md:right-10  md:max-w-[40vw] text-center bg-neutral-200 p-10 rounded-lg'>
+      {cart.length > 0 && <section className='md:fixed md:top-[200px] md:right-10  md:max-w-[40vw] mb-5 text-center bg-neutral-200 p-10 rounded-lg'>
         <p className='text-xl lg:text-3xl'>Total items: {getTotalItems()}</p>
       <p className='text-xl  lg:text-3xl my-5'>Total amount: ${getTotal()} </p>
        <button onClick={handleCheckout} className='bg-neutral-400 rounded-md text-neutral-100 p-2 m-2   shadow-md active:shadow-none  '>Proceed to Checkout</button>
