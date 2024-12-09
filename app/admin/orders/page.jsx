@@ -33,7 +33,10 @@ const page = () => {
         <tr className='flex justify-between text-orange-300'>
         <th className='w-48'>Name</th>
         <th className='w-48'>Email</th>
-        <th className='w-48'>Address</th>
+        <th className='w-48'>Street</th>
+        <th className='w-48'>City</th>
+        <th className='w-48'>State</th>
+        <th className='w-48'>Zip Code</th>
           <th className='w-48'>Product</th>
           <th className='w-48'>Category</th>
           <th className='w-48'>Price</th>
@@ -44,7 +47,7 @@ const page = () => {
       </thead>
       <tbody>
 
-    {!orders ? "" : orders.map((order,index)=>{ return <CustomerInfo className="border-x-2" key={index}     name={order.customer.name} email={order.customer.email} address={order.customer.address}  items={items}/> }) }
+    {!orders ? "" : orders.map((order,index)=>{ return <CustomerInfo  key={index}     name={order.customer.name} email={order.customer.email} street={order.customer.street} city={order.customer.city} state={order.customer.state} zipcode={order.customer.zipcode}  items={items}/> }) }
    
       </tbody>
     </table>

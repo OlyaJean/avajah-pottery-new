@@ -3,19 +3,43 @@ import React, { useState } from 'react'
 import { useCart } from './../../../context/CartContext';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import axios from 'axios';
+
 
 const page = () => {
   const { cart, removeFromCart,incrementQuantity, decrementQuantity, getTotal,getTotalItems, clearCart } = useCart();
   const router = useRouter();
 
-  const handleCheckout = () => {
-    router.push('/main/cart/[id]');
+
+  const [customerInfo, setCustomerInfo] = useState({
+    name: '',
+    street: '',
+    city:'',
+    state:'',
+    zipcode:'',
+    email: '',
+  });
+
+  const handleCheckout = async() => {
+    console.log(cart)
+    //router.push('/main/cart/[id]');
+    try {
+      const response = await axios.post('/api/checkout', {
+        cartItems: cart, // Pass the cart items to the API
+      });
+
+      // Redirect to Stripe Checkout
+      window.location.href = response.data.url;
+    } catch (error) {
+      console.error('Error during checkout:', error);
+      alert('Failed to initiate checkout. Please try again.');
+    }
   };
  
  
 
   return (
-    <div className='min-h-[93vh] px-10'>
+    <div className='min-h-[100vh] px-10'>
      
        <h2 className='text-center mt-10 mb-5  md:text-2xl py-5  rounded-md  bg-slate-300'>Your Cart</h2>
       {cart.length === 0 ? (
@@ -45,9 +69,62 @@ const page = () => {
           </div>
         ))
       )}
-      {cart.length > 0 && <section className='md:fixed md:top-[200px] md:right-10  md:max-w-[40vw] mb-5 text-center bg-neutral-200 p-10 rounded-lg'>
-        <p className='text-xl lg:text-3xl'>Total items: {getTotalItems()}</p>
-      <p className='text-xl  lg:text-3xl my-5'>Total amount: ${getTotal()} </p>
+      {cart.length > 0 && <section className='md:absolute md:top-[200px] md:right-10  md:max-w-[40vw] lg:w-[50vw] mb-5 text-center bg-neutral-200 p-5 rounded-lg mx-auto'>
+       
+      <h2 className='text-xl lg:text-3xl my-5'>Your shipping information</h2>
+      <form  className='flex flex-col gap-5  sm:w-3/4 mx-auto' >
+        <input
+          type="text"
+          name="name"
+          placeholder="Full name"
+          value={customerInfo.name}
+         className='p-1 rounded-md'
+          required
+        />
+        <input
+          type="text"
+          name="street"
+          placeholder="Street name"
+          value={customerInfo.street}
+          className='p-1 rounded-md'
+          required
+        />
+         <input
+          type="text"
+          name="city"
+          placeholder="City"
+          value={customerInfo.city}
+          className='p-1 rounded-md'
+          required
+        />
+         <input
+          type="text"
+          name="state"
+          placeholder="State"
+          value={customerInfo.state}
+          className='p-1 rounded-md'
+          required
+        />
+         <input
+          type="text"
+          name="zipcode"
+          placeholder="Zip Code"
+          value={customerInfo.zipcode}
+          className='p-1 rounded-md'
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email address"
+          value={customerInfo.email}
+          className='p-1 rounded-md'
+          required
+        />
+       
+      </form>
+      <p className='text-xl  mt-5'>Total items: {getTotalItems()}</p>
+      <p className='text-xl   my-5'>Total amount: ${getTotal()} </p>
        <button onClick={handleCheckout} className='bg-neutral-400 rounded-md text-neutral-100 p-2 m-2   shadow-md active:shadow-none  '>Proceed to Checkout</button>
        <button onClick={()=> clearCart()} className='bg-neutral-400 rounded-md text-neutral-100 p-2  m-2 shadow-md active:shadow-none  '>Clear cart</button>
       </section>}

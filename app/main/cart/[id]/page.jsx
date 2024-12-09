@@ -7,7 +7,10 @@ const page = () => {
   const { cart, clearCart } = useCart();
   const [customerInfo, setCustomerInfo] = useState({
     name: '',
-    address: '',
+    street: '',
+    city:'',
+    state:'',
+    zipcode:'',
     email: '',
   });
 
@@ -42,7 +45,7 @@ const page = () => {
   return (
     <div className='min-h-[93vh] px-10'>
       <h2 className='text-center mt-10 mb-5  md:text-2xl py-5  rounded-md  bg-slate-300'>Checkout</h2>
-      <p>hello</p>
+      
      
       <form onSubmit={handleSubmit} className='flex flex-col gap-5  sm:w-3/4'>
         <input
@@ -55,9 +58,33 @@ const page = () => {
         />
         <input
           type="text"
-          name="address"
-          placeholder="Address"
-          value={customerInfo.address}
+          name="street"
+          placeholder="Street"
+          value={customerInfo.street}
+          onChange={handleChange}
+          required
+        />
+         <input
+          type="text"
+          name="city"
+          placeholder="City"
+          value={customerInfo.city}
+          onChange={handleChange}
+          required
+        />
+         <input
+          type="text"
+          name="state"
+          placeholder="State"
+          value={customerInfo.state}
+          onChange={handleChange}
+          required
+        />
+         <input
+          type="text"
+          name="zipcode"
+          placeholder="Zip Code"
+          value={customerInfo.zipcode}
           onChange={handleChange}
           required
         />

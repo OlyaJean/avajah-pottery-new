@@ -3,7 +3,10 @@ import mongoose from "mongoose";
 const Schema = new mongoose.Schema({
   customer: {
     name: String,
-    address: String,
+    street: String,
+    city: String,
+    state:String,
+    zipcode:String,
     email: String,
   },
   items: [
