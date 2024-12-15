@@ -1,10 +1,12 @@
+
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE); // Use your Stripe secret key
 
 export async function POST(request) {
   try {
-    const { cartItems } = await request.json(); // Receive cart data from frontend
+    const { cartItems, customerInfo } = await request.json(); 
+
 
     // Map cart items to Stripe's format
     const lineItems = cartItems.map((item) => ({
@@ -12,7 +14,7 @@ export async function POST(request) {
         currency: 'usd',
         product_data: {
           name: item.description, // Product name
-          description: item.category, // Optional description
+         
         },
         unit_amount: Math.round(item.price * 100), // Price in cents
       },
@@ -24,8 +26,14 @@ export async function POST(request) {
       payment_method_types: ['card'], // Accept card payments
       mode: 'payment', // For one-time payments
       line_items: lineItems,
-      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/success`, // Redirect on success
+      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+     
+      // Redirect on success
       cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/cancel`, // Redirect on cancel
+      metadata:{
+        customerInfo: JSON.stringify(customerInfo),
+        cartItems: JSON.stringify(cartItems)
+      }
     });
 
     return new Response(JSON.stringify({ url: session.url }), {

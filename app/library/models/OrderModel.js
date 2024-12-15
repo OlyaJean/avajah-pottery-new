@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const Schema = new mongoose.Schema({
-  customer: {
+  customerInfo: {
     name: String,
     street: String,
     city: String,
@@ -9,7 +9,7 @@ const Schema = new mongoose.Schema({
     zipcode:String,
     email: String,
   },
-  items: [
+  cartItems: [
     {
       _id: String,
       description: String,

@@ -20,12 +20,31 @@ const page = () => {
     email: '',
   });
 
-  const handleCheckout = async() => {
+
+  const handleChange = (e) => {
+    setCustomerInfo({ ...customerInfo, [e.target.name]: e.target.value });
+    console.log(cart)
+    console.log(customerInfo)
+  };
+
+
+  const handleCheckout = async(e) => {
+    e.preventDefault()
     console.log(cart)
     //router.push('/main/cart/[id]');
+    const filteredCart = cart.map((item,i) => ({
+      description:cart[i].description,
+      id:cart[i]._id, 
+      category: cart[i].category, 
+      price: cart[i].price,
+      quantity: cart[i].quantity
+    }))
+    console.log(filteredCart)
     try {
       const response = await axios.post('/api/checkout', {
-        cartItems: cart, // Pass the cart items to the API
+        cartItems: filteredCart,
+        customerInfo: customerInfo,
+       
       });
 
       // Redirect to Stripe Checkout
@@ -34,6 +53,7 @@ const page = () => {
       console.error('Error during checkout:', error);
       alert('Failed to initiate checkout. Please try again.');
     }
+    clearCart();
   };
  
  
@@ -62,22 +82,23 @@ const page = () => {
             <button className='bg-neutral-400 w-36 rounded-md text-neutral-100 py-2 px-6  shadow-md active:shadow-none  ' onClick={() => removeFromCart(item._id)}>Remove</button>
             </section>
             <section className='flex flex-col gap-10'>
-            <Image alt='' width={100} height={100} src={item.img} className='border-2'></Image>
+            <Image alt='' width={100} height={100} src={item.img} className='border-2 rounded-md'></Image>
 
             <p className='text-lg text-center underline'>Subtotal ${item.quantity * item.price}</p>
             </section>
           </div>
         ))
       )}
-      {cart.length > 0 && <section className='md:absolute md:top-[200px] md:right-10  md:max-w-[40vw] lg:w-[50vw] mb-5 text-center bg-neutral-200 p-5 rounded-lg mx-auto'>
+      {cart.length > 0 && <section className='md:absolute md:top-[200px] md:right-10  md:min-w-[40vw]  mb-5 text-center bg-neutral-200 p-5 rounded-lg mx-auto'>
        
       <h2 className='text-xl lg:text-3xl my-5'>Your shipping information</h2>
-      <form  className='flex flex-col gap-5  sm:w-3/4 mx-auto' >
+      <form  className='flex flex-col gap-4  sm:w-3/4 mx-auto' onSubmit={handleCheckout}>
         <input
           type="text"
           name="name"
           placeholder="Full name"
           value={customerInfo.name}
+          onChange={handleChange}
          className='p-1 rounded-md'
           required
         />
@@ -86,6 +107,7 @@ const page = () => {
           name="street"
           placeholder="Street name"
           value={customerInfo.street}
+          onChange={handleChange}
           className='p-1 rounded-md'
           required
         />
@@ -94,6 +116,7 @@ const page = () => {
           name="city"
           placeholder="City"
           value={customerInfo.city}
+          onChange={handleChange}
           className='p-1 rounded-md'
           required
         />
@@ -102,6 +125,7 @@ const page = () => {
           name="state"
           placeholder="State"
           value={customerInfo.state}
+          onChange={handleChange}
           className='p-1 rounded-md'
           required
         />
@@ -110,6 +134,7 @@ const page = () => {
           name="zipcode"
           placeholder="Zip Code"
           value={customerInfo.zipcode}
+          onChange={handleChange}
           className='p-1 rounded-md'
           required
         />
@@ -118,16 +143,21 @@ const page = () => {
           name="email"
           placeholder="Email address"
           value={customerInfo.email}
+          onChange={handleChange}
           className='p-1 rounded-md'
           required
         />
        
+       <p className='text-xl'>Total items: {getTotalItems()}</p>
+      <p className='text-xl'>Total amount: ${getTotal()} </p>
+       <button  type='submit' className='bg-neutral-400 rounded-md text-neutral-100 p-2  shadow-md active:shadow-none  '>Proceed to Checkout</button>
+       <button onClick={()=> clearCart()} className='bg-neutral-400 rounded-md text-neutral-100 p-2  m-2 shadow-md active:shadow-none '>Clear cart</button>
       </form>
-      <p className='text-xl  mt-5'>Total items: {getTotalItems()}</p>
-      <p className='text-xl   my-5'>Total amount: ${getTotal()} </p>
-       <button onClick={handleCheckout} className='bg-neutral-400 rounded-md text-neutral-100 p-2 m-2   shadow-md active:shadow-none  '>Proceed to Checkout</button>
-       <button onClick={()=> clearCart()} className='bg-neutral-400 rounded-md text-neutral-100 p-2  m-2 shadow-md active:shadow-none  '>Clear cart</button>
+      
+    
+
       </section>}
+
     </div>
   )
 }
