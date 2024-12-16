@@ -3,7 +3,10 @@ import OrderModel from "./../../library/models/OrderModel";
 const { NextResponse } = require("next/server")
 
 
-
+export async function GET(request){
+  const items = await OrderModel.find({})
+  return NextResponse.json({items})
+}
 
 
 export async function POST(request) {
