@@ -35,13 +35,13 @@ const page = () => {
        
     </div>
   <div >
-    <form onSubmit={onSubmit} className='flex flex-col gap-2 w-3/4 mx-auto my-10'>
+    <form onSubmit={onSubmit} className='flex flex-col gap-2 w-3/4 mx-auto my-10 bg-slate-300 rounded-md p-5'>
         <label>Your name:</label>
-        <input type="text" name="name" placeholder='Enter your name' />
+        <input type="text" name="name" placeholder='Enter your name' className='p-1 rounded-md'/>
         <label>Phone Number:</label>
-        <input type="tel" name='phone' placeholder='Enter your phone number' />
+        <input type="tel" name='phone' placeholder='Enter your phone number' className='p-1 rounded-md'/>
         <label>Write your message here:</label>
-        <textarea name="message" rows='6' placeholder='Enter your message' ></textarea>
+        <textarea name="message" rows='6' placeholder='Enter your message' className='p-1 rounded-md'></textarea>
         <button type='submit' className='my-10 bg-neutral-400 rounded-md w-48 mx-auto text-neutral-100 p-2 shadow-md active:shadow-none '>Submit </button>
     </form>
     <span>{result}</span>
