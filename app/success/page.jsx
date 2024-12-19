@@ -72,12 +72,4 @@ const Page = () => {
 }
 
 
-export function SusPage() {
-  return (
-    // You could have a loading skeleton as the `fallback` too
-    <Suspense>
-      <Page />
-    </Suspense>
-  )
-}
-
+export default Page
