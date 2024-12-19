@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 
 
-const page = () => {
+const Page = () => {
   const router = useRouter()
   return (
     <div className='flex flex-col items-center justify-center mt-20 gap-5'>
@@ -14,4 +14,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
