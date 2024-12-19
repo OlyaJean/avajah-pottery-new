@@ -6,7 +6,7 @@ import Image from 'next/image';
 import axios from 'axios';
 
 
-const page = () => {
+const Page = () => {
   const { cart, removeFromCart,incrementQuantity, decrementQuantity, getTotal,getTotalItems, clearCart } = useCart();
   const router = useRouter();
 
@@ -162,7 +162,7 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
 
 
 

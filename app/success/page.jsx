@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 import axios from "axios";
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const session_id = searchParams.get('session_id')
@@ -71,4 +71,4 @@ const x = 123;
   )
 }
 
-export default page
+export default Page

@@ -2,7 +2,7 @@
 import SidebarAdmin from "@/components/SidebarAdmin";
 import { useSession,signIn, signOut } from "next-auth/react";
 
-export default function page(){
+export default function Page(){
  const {data: session} = useSession()
 if(session){
   return (

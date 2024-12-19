@@ -8,7 +8,7 @@ import axios from 'axios'
 
 
 
-const page = () => {
+const Page = () => {
   const [menu,setMenu] = useState("All");
  
   const [adminItems, setAdminItems] = useState([])
@@ -43,4 +43,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

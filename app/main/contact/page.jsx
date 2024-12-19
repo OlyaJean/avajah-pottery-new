@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 
-const page = () => {
+const Page = () => {
 
     const [result, setResult] = React.useState("");
 
@@ -50,4 +50,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

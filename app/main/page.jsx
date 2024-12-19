@@ -5,7 +5,7 @@ import { assets } from '@/assets/assets'
 
 
 
-export default function page() {
+export default function Page() {
   return (
   <>
       <Image src={assets.bg1} alt='' className='main-image w-[100%] h-[93vh] bg-center object-cover relative opacity-50'/>

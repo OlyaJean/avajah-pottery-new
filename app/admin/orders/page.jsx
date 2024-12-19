@@ -4,7 +4,7 @@ import OrderDetails from '@/components/OrderDetails';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
-const page = () => {
+const Page = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -55,4 +55,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

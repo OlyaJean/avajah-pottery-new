@@ -3,7 +3,7 @@ import AdminList from '@/components/AdminList'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
-const page = () => {
+const Page = () => {
 
   const [items,setItems] = useState([]);
   const fetchItems = async() => {
@@ -43,4 +43,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

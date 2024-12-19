@@ -1,7 +1,7 @@
 import React from 'react'
 import profile from '/assets/profile.jpg'
 import Image from 'next/image'
-const page = () => {
+const Page = () => {
   return (
     <div className='flex flex-col gap-5 px-10 tracking-widest'>
 
@@ -36,5 +36,5 @@ Thank you for being here.  And hope you’ll enjoy following along as my passion
   )
 }
 
-export default page
+export default Page
  
