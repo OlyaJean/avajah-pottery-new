@@ -10,8 +10,8 @@ const Header = () => {
   const { cart, getTotalItems} = useCart();
 
   return (
-    <div className='navShadow flex justify-between px-20 sm:px-0 sm:justify-evenly items-center  bg-neutral-100 sticky top-0 z-40'>
-    <span className='tracking-widest hidden sm:block text-center font-extralight text-sm'>Avajah <hr />pottery</span>
+    <div className='navShadow flex justify-between px-10 sm:px-0 sm:justify-evenly items-center  bg-neutral-100 sticky top-0 z-40'>
+    <span className='  text-center font-extralight text-xs'>Avajah <hr />pottery</span>
     <nav>
       <ul  className='flex gap-3 sm:gap-5 my-5 md:gap-20 text-neutral-500 navbar md:text-[1.1rem]'>
           <Link href={'/main'}>Home</Link>
@@ -21,7 +21,7 @@ const Header = () => {
       </ul>
    
     </nav>
-    <Link href={'/main/cart'} ><Image alt='' src={cartIcon} width={20} className='cursor-pointer text-neutral-500 absolute top-5'/><span className='relative left-5 top-1 text-slate-700  font-extrabold'>{cart.length > 0? getTotalItems() : ''}</span></Link>
+    <Link href={'/main/cart'} ><Image alt='' src={cartIcon} width={20} className='cursor-pointer text-neutral-500 absolute top-5 right-10'/><span className='relative left-5 top-1 text-slate-700  font-extrabold'>{cart.length > 0? getTotalItems() : ''}</span></Link>
   </div>
   )
 }
