@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect } from "react";
-
+import { Suspense } from 'react'
 import axios from "axios";
 
 const Page = () => {
@@ -13,7 +13,7 @@ const Page = () => {
  
 
  
-const x = 123;
+
 
   useEffect(() => {
     const fetchSession = async () => {
@@ -71,4 +71,13 @@ const x = 123;
   )
 }
 
-export default Page
+
+export function SusPage() {
+  return (
+    // You could have a loading skeleton as the `fallback` too
+    <Suspense>
+      <Page />
+    </Suspense>
+  )
+}
+
