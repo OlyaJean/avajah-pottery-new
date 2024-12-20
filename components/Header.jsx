@@ -21,7 +21,7 @@ const Header = () => {
       </ul>
    
     </nav>
-    <Link href={'/main/cart'} ><Image alt='' src={cartIcon} width={20} className='cursor-pointer text-neutral-500 absolute top-5 right-10'/><span className='relative left-5 top-1 text-slate-700  font-extrabold'>{cart.length > 0? getTotalItems() : ''}</span></Link>
+    <Link href={'/main/cart'} ><Image alt='' src={cartIcon} width={20} className='cursor-pointer text-neutral-500 absolute top-5'/><span className='relative left-5 top-1 text-slate-700  font-extrabold'>{cart.length > 0? getTotalItems() : ''}</span></Link>
   </div>
   )
 }
