@@ -2,7 +2,10 @@
 import {Raleway} from "next/font/google";
 import "./globals.css";
 
-
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
+import { CartProvider } from '@/context/CartContext'
+import React from 'react'
 
 
 
@@ -18,15 +21,20 @@ export const metadata = {
   description: "handmade ceramic goods",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children,pageProps }) {
   return (
     <>
     <html lang="en">
-      <body
-       className={raleway.className}
-      > 
+      <body className={raleway.className}>
+      
      
+      <CartProvider>
+       <div {...pageProps}>
+      <Header/>
       {children}
+      <Footer/>
+    </div>
+    </CartProvider>
    
        
       

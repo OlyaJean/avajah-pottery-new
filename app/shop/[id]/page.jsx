@@ -1,5 +1,5 @@
 'use client'
-import { assets, items } from '@/assets/assets';
+
 import axios from 'axios';
 import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
@@ -50,7 +50,7 @@ import React, { useEffect, useState } from 'react'
     </section>
     </div>
     <div className='flex justify-center gap-5'>
-       <button  className='bg-neutral-400 w-36 rounded-md text-neutral-100 py-2 px-6 shadow-md active:shadow-none' onClick={()=>router.push('/main/shop')}>back</button>
+       <button  className='bg-neutral-400 w-36 rounded-md text-neutral-100 py-2 px-6 shadow-md active:shadow-none' onClick={()=>router.push('/shop')}>back</button>
        <button className='bg-neutral-400 w-36 rounded-md text-neutral-100 py-2 px-6  shadow-md active:shadow-none  ' onClick={()=> addToCart(data)}>add to cart</button>
      
   </div>

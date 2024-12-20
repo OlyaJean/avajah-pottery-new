@@ -1,7 +1,7 @@
 import { connectDB } from "@/app/library/config/db"
 import {writeFile} from 'fs/promises'
 const { NextResponse } = require("next/server")
-import { items } from "@/assets/assets.js";
+
 import ShopModel from "../../library/models/ShopModel.js";
 const fs = require('fs')
 
