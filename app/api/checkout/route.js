@@ -26,7 +26,7 @@ export async function POST(request) {
       payment_method_types: ['card'], // Accept card payments
       mode: 'payment', // For one-time payments
       line_items: lineItems,
-      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/components/success?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
      
       // Redirect on success
       cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/cancel`, // Redirect on cancel

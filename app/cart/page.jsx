@@ -100,6 +100,7 @@ const Page = () => {
           value={customerInfo.name}
           onChange={handleChange}
          className='p-1 rounded-md'
+          autoComplete='off'
           required
         />
         <input
@@ -109,6 +110,7 @@ const Page = () => {
           value={customerInfo.street}
           onChange={handleChange}
           className='p-1 rounded-md'
+           autoComplete='off'
           required
         />
          <input
@@ -118,6 +120,7 @@ const Page = () => {
           value={customerInfo.city}
           onChange={handleChange}
           className='p-1 rounded-md'
+           autoComplete='off'
           required
         />
          <input
@@ -127,6 +130,7 @@ const Page = () => {
           value={customerInfo.state}
           onChange={handleChange}
           className='p-1 rounded-md'
+           autoComplete='off'
           required
         />
          <input
@@ -136,6 +140,7 @@ const Page = () => {
           value={customerInfo.zipcode}
           onChange={handleChange}
           className='p-1 rounded-md'
+           autoComplete='off'
           required
         />
         <input
@@ -145,6 +150,7 @@ const Page = () => {
           value={customerInfo.email}
           onChange={handleChange}
           className='p-1 rounded-md'
+          autoComplete='off'
           required
         />
        
