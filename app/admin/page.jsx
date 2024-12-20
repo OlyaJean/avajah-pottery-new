@@ -1,5 +1,5 @@
 'use client'
-import SidebarAdmin from "@/components/SidebarAdmin";
+
 import { useSession,signIn, signOut } from "next-auth/react";
 
 export default function Page(){
